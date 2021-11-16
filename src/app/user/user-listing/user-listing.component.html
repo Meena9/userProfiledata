@@ -1,0 +1,51 @@
+<div class="container">
+
+<div class="mt-2 mb-4 ">
+    <button routerLink="/user/create" type="button" class="btn btn-primary">Add User</button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Edit</th>
+      <th> delete</th>
+      <th>single user</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of userList">
+      <th scope="row">{{ data.id }}</th>
+      <td>{{ data.email }}</td>
+      <td>{{ data.first_name }}</td>
+      <td>{{ data.last_name  }}</td>
+      <td>
+        <img src="{{ data.avatar }}" class="mr-2" style="width: 100px; height:100px">
+      
+      </td>
+      <td><button  class="edit"
+        title="Edit "
+        type="button" class="btn btn-primary"
+        data-toggle="tooltip" [routerLink]="['/user/edit', data.id]">update</button></td>
+   <td>
+       <button (click)="deletedata(data.id)" class="btn btn-primary">delete</button>
+   </td>
+   <td>
+    <button [routerLink]="['/user/single', data.id]" class="btn btn-primary">Single user</button>
+</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="ListSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="paginationData()">
+    </ngb-pagination>
+  
+
+  </div>
+</div>

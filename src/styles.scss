@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+.login-container{
+    max-width: 400px; 
+    margin: 100px auto 0;
+  }
+  
+  .error{
+    color: tomato; 
+    font-size: 12px; 
+    padding-top: 4px
+  }
